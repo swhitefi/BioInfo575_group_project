@@ -16,7 +16,7 @@
 	git clone https://github.com/jasonsahl/LS-BSR.git
 
 ### follow instructions to download dependencies
-## Run LSBSR
+### Run LSBSR
 	python ls_bsr.py -d directory_of_FASTA -u Path/to/USEARCH
 
 ###look at pan genome stats
