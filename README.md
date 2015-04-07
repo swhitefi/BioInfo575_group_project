@@ -9,7 +9,7 @@ Core Genome
 
 Pan Genome
 LS-BSR 
-# downloaded manual
+## Downloaded manual
 
 	curl -O https://github.com/jasonsahl/LS-BSR/blob/master/LS_BSR_manual.pdf?raw=true
 
