@@ -1,6 +1,12 @@
 # BioInfo575_group_project: Phylogenetic methods used in Bioinfo 575 final project Spring 2015
 
 ##MCMC
+Komal type here:
+###instruction
+#### do another thing
+##### code comments
+	your code here
+
 
 ##Core Genome
 
