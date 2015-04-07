@@ -11,7 +11,8 @@
 	curl -O https://github.com/jasonsahl/LS-BSR/blob/master/LS_BSR_manual.pdf?raw=true
 ### follow instructions in the manual to clone the repository with git
 	git clone https://github.com/jasonsahl/LS-BSR.git
-### Follow instructions to download dependencies then Run LS-BSR
+#### Follow instructions to download dependencies 
+### Run LS-BSR
 	python ls_bsr.py -d directory_of_FASTA -u Path/to/USEARCH
 ###Look at pan genome stats: klebsiella example:
 	python pan_genome_stats.py -b klebs_bsr_matrix_values.txt 
