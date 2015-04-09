@@ -148,4 +148,35 @@ Komal type here:
 	/path/FastTree -nt < final_klebs.fasta > Klebs_snp.tree
 #######Trees were visualized with Figtree and R as described above for other methods
 
+### Compare Parsnp core and kSNP core agreement in R
 
+	library(ape)
+	#read in the trees
+	#klebsiella
+	parsnp<-read.tree(file="Klebs_parsnp.tree")
+	kSNP_Core<-read.tree(file="tree.core.tre")
+	#Abau
+	Abau_parsnp<-read.tree(file="Abau_parsnp.tree")
+	Abau_kSnp_Core<-read.tree(file="Abau_tree.core.tree")
+
+	#make distance matrices
+	#klebs
+	parsnp_mat<-cophenetic(parsnp)
+	kSNP_core_mat<-cophenetic(kSNP_Core)
+	#abau
+	Abau_parsnp_mat<-cophenetic(Abau_parsnp)
+	Abau_kSNP_core_mat<-cophenetic(Abau_kSnp_Core)
+	#sort the matrices to get them in the same order
+	#klebs
+	parsnp_mat<-parsnp_mat[order(colnames(parsnp_mat)),order(rownames(parsnp_mat))]
+	kSNP_core_mat<-kSNP_core_mat[order(colnames(kSNP_core_mat)),order(rownames(kSNP_core_mat))]
+	#Abau
+	Abau_parsnp_mat<-Abau_parsnp_mat[order(colnames(Abau_parsnp_mat)),order(rownames(Abau_parsnp_mat))]Abau_kSNP_core_mat<-		Abau_kSNP_core_mat[order(colnames(Abau_kSNP_core_mat)),order(rownames(Abau_kSNP_core_mat))]
+	#Klebsiella & Abau: PLOT KSNP CORE, PARSNP
+	plot(kSNP_core_mat[lower.tri(kSNP_core_mat)],(parsnp_mat[lower.tri(parsnp_mat)]), type="p", col="black", 			main="Correlation Between Core Genome Methods", ylab="Parsnp Core Genomic Distance", xlab="kSNP Core Genomic 			Distance")
+	points(Abau_kSNP_core_mat[lower.tri(Abau_kSNP_core_mat)],(Abau_parsnp_mat[lower.tri(Abau_parsnp_mat)]), type="p",pch=4, 	col="green")
+	#green = Abay
+	#black = klebsiella
+	#correlation statistic between matrices
+	cor.test(kSNP_core_mat,parsnp_mat)
+	cor.test(Abau_kSNP_core_mat,Abau_parsnp_mat)
