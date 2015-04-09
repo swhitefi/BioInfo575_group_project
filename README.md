@@ -94,7 +94,52 @@ Komal type here:
 	-vcf -ML
 ######download figtree to visualize the trees!
 	-curl -O http://tree.bio.ed.ac.uk/download.php?id=90
+##SNP phylogeny
+######download mugsy and setup dependencies
+	curl -O https://sourceforge.net/projects/mugsy/files/
+###### run mugsy. mugsy needs all genomes and paths called in command line. 
+	mugsy --directory ./mugsy_output/ -p Abau_test ~/Bio_info.packages/Genomes/ABAU_GENOMES/Abau_ALL/AbauA_genome.fasta 		~/Bio_info.packages/Genomes/ABAU_GENOMES/Abau_ALL/AbauB_genome.fasta 								~/Bio_info.packages/Genomes/ABAU_GENOMES/Abau_ALL/AbauC_genome.fast								 ~/Bio_info.packages/Genomes/ABAU_GENOMES/Abau_ALL/ACICU_genome.fast								 ~/Bio_info.packages/Genomes/ABAU_GENOMES/Abau_ALL/Abau_HC64_021406_genome.fasta
+###### if lots of genomes run this python script to generate mugsy command line calls
+	#!/usr/bin/env python
+	from __future__ import print_function
+	import argparse
+	import os
+	import re
+	import sys
+	parser = argparse.ArgumentParser(description='''This program takes a directory of genomes
+	and the name of a .PBS file and creates a PBS file to run Mugsy to perform multiple genome
+	alignment on all of the .fasta genome files in the directory.  After you run this script
+	you will need to specify the path to mugsy in the output file
+	and you will want to change the name of your flux run in the PBS preamble''')
+	parser.add_argument('-GD', help='Path to genome directory')
+	parser.add_argument('-mOD', help = 'Path to mugsy output directory')
+	parser.add_argument('-p', help = 'prefix to name .MAF mugsy output file')
+	parser.add_argument('-o', '--outfile', help='''Name of .PBS file to make.''')
+	args=parser.parse_args()
+	#get genome files from the directory specified in -GD
+	genome_files = os.listdir(args.GD)
+	outfile = open(args.outfile, 'w')
+	GD=args.GD
+	#print commands to run Mugsy
+	#variable for directory to output data to
+	mugsyOutDir = args.mOD
+	prefix = args.p
+	#prefix to name .MAF file
+	mugsStuff = " ".join(["mugsy --directory", mugsyOutDir, "-p", prefix])
+	#print the genomes
+	for i in genome_files:
+		print('/'.join([GD,i]), end=' ', file = outfile)
+	outfile.close()
+######Mugsy outputs a .MAF file
 
-
+#######now need a script to convert MAF to FASTA to build a tree with fasttree
+#######use mugsy maf2fasta.pl script
+#######Extract an alignment, e.g., the first LCB (locally co-linear block):
+	~/Bio_info.packages/mugsy_x86-64-v1r2.3/maf2fasta.pl 1 < ./klebs_mugsy.maf > test_klebs.fasta
+#######now need to remove "= sign" from end of files
+	grep -v "=" test_klebs.fasta > final_klebs.fasta
+#######now build a tree with FastTree
+	/path/FastTree -nt < final_klebs.fasta > Klebs_snp.tree
+#######Trees were visualized with Figtree and R as described above for other methods
 
 
