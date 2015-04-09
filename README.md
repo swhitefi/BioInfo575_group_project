@@ -17,7 +17,7 @@ Komal type here:
 		parsnp -r ! -d ./ -p 8 -c
 ###### visualized Newick formatted trees in Gingr following instructions above and R as specified below.
 ##Pan Genome
-### dowload LS-BSR and documentation
+### download LS-BSR and documentation
 ### Download manual
 	curl -O https://github.com/jasonsahl/LS-BSR/blob/master/LS_BSR_manual.pdf?raw=true
 ### follow instructions in the manual to clone the repository with git to download LS-BSR programs
