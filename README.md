@@ -1,6 +1,6 @@
 # BioInfo575_group_project: Phylogenetic methods used in Bioinfo 575 final project Spring 2015
 
-##MCMC
+##Bayesian Inference
 Komal type here:
 ###instruction
 #### do another thing
@@ -9,7 +9,13 @@ Komal type here:
 
 
 ##Core Genome
-
+###### download parsnp and gingr
+	curl -O https://github.com/marbl/harvest-tools/releases/download/v1.2/harvesttools-Linux64-v1.2.tar.gz/
+###### all documentation is available here: http://harvest.readthedocs.org/en/latest/content/harvest-tools.html
+######perform alignment with forced inclusion of all genomes in directory and random reference genome
+###### input is a directory of genomes 
+		parsnp -r ! -d ./ -p 8 -c
+###### visualized Newick formatted trees in Gingr following instructions above and R as specified below.
 ##Pan Genome
 ### dowload LS-BSR and documentation
 ### Download manual
