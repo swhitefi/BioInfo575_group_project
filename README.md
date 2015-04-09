@@ -12,7 +12,7 @@ Komal type here:
 
 ##Pan Genome
 ### dowload LS-BSR and documentation
-### Downloaded manual
+### Download manual
 	curl -O https://github.com/jasonsahl/LS-BSR/blob/master/LS_BSR_manual.pdf?raw=true
 ### follow instructions in the manual to clone the repository with git to download LS-BSR programs
 	git clone https://github.com/jasonsahl/LS-BSR.git
