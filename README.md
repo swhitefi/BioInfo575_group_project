@@ -181,5 +181,36 @@
 	tar zxvf bioscripts.convert.tgz
 	cd bioscripts.convert
 	python setup.py install
+	
+## R-Code with Ape package for visualization library(ape)
+	Abau_kmer <- read.tree(file='/Users/komalgauri/Desktop/Kmer_Abau.tre')
+	Abau_snp <- read.tree(file='/Users/komalgauri/Desktop/Abau_snp.tree')
+	Abau_core <- read.tree(file='/Users/komalgauri/Desktop/Core_Abau')
+	Abau_BI <- read.tree(file='/Users/komalgauri/Desktop/Abau_BI_newick.tre')
+
+	kmer <- read.tree(file='/Users/komalgauri/Desktop/Klebs_Kmer.tre')
+	snp <- read.tree(file='/Users/komalgauri/Desktop/Klebs_snp.tree')
+	core <- read.tree(file='/Users/komalgauri/Desktop/Core_Klebs.tree')
+	BI <- read.tree(file='/Users/komalgauri/Desktop/BI_Klebs_newick.tre')
+
+
+
+	plot(Abau_kmer)
+	title ('Kmer Tree')
+	add.scale.bar(cex = 2, x = 0.16489, y = 3.748028)
+
+	plot(Abau_snp)
+	title('SNP Tree')
+	add.scale.bar(cex=2, x = 0.000139457, y = 3.669759)
+
+	plot (Abau_core)
+	title('Core Tree')
+	add.scale.bar (cex=2, )
+
+	plot(Abau_BI)
+	title('Bayesian Inference Tree')
+	add.scale.bar(cex=2,x=0.0003303876, y=3.636215)	
+
+	
 
 
