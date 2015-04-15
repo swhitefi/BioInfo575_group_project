@@ -1,13 +1,5 @@
 # BioInfo575_group_project: Phylogenetic methods used in Bioinfo 575 final project Spring 2015
 
-##Bayesian Inference
-Komal type here:
-###instruction
-#### do another thing
-##### code comments
-	your code here something
-
-
 ##Core Genome
 ###### download parsnp and gingr
 	curl -O https://github.com/marbl/harvest-tools/releases/download/v1.2/harvesttools-Linux64-v1.2.tar.gz/
@@ -180,3 +172,14 @@ Komal type here:
 	#correlation statistic between matrices
 	cor.test(kSNP_core_mat,parsnp_mat)
 	cor.test(Abau_kSNP_core_mat,Abau_parsnp_mat)
+
+##Bayesian Inference
+###instruction
+#### do another thing
+##### to install bioscripts.convert 0.4
+	curl -O https://pypi.python.org/packages/source/b/bioscripts.convert/bioscripts.convert-0.4.tar.gz
+	tar zxvf bioscripts.convert.tgz
+	cd bioscripts.convert
+	python setup.py install
+
+
