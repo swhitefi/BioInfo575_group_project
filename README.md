@@ -193,12 +193,12 @@
 	plot(Abau_kmer)
 	title ('Kmer Tree')
 	locator()
-	add.scale.bar(x = 1.2, y = 1)
+	add.scale.bar(x=1.2, y=1)
 ###### Plot SNP tree with scale bar
 	plot(Abau_snp)
 	title('SNP Tree')
 	locator()
-	add.scale.bar(x = 0.001, y = 1)
+	add.scale.bar(x=0.001, y=1)
 ###### Plot Core Genome tree with scale bar
 	plot (Abau_core)
 	title('Core Tree')
