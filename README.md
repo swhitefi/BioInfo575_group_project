@@ -182,35 +182,31 @@
 	cd bioscripts.convert
 	python setup.py install
 	
-## R-Code with Ape package for visualization library(ape)
-	Abau_kmer <- read.tree(file='/Users/komalgauri/Desktop/Kmer_Abau.tre')
-	Abau_snp <- read.tree(file='/Users/komalgauri/Desktop/Abau_snp.tree')
-	Abau_core <- read.tree(file='/Users/komalgauri/Desktop/Core_Abau')
-	Abau_BI <- read.tree(file='/Users/komalgauri/Desktop/Abau_BI_newick.tre')
-
-	kmer <- read.tree(file='/Users/komalgauri/Desktop/Klebs_Kmer.tre')
-	snp <- read.tree(file='/Users/komalgauri/Desktop/Klebs_snp.tree')
-	core <- read.tree(file='/Users/komalgauri/Desktop/Core_Klebs.tree')
-	BI <- read.tree(file='/Users/komalgauri/Desktop/BI_Klebs_newick.tre')
-
-
-
+## R-Code with Ape package for visualization of Acinetobacter baumannii trees
+	library(ape)
+###### Read in tree files
+	Abau_kmer <- read.tree(file)
+	Abau_snp <- read.tree(file)
+	Abau_core <- read.tree(file)
+	Abau_BI <- read.nexus(file)
+###### Plot Kmer tree with scale bar 
 	plot(Abau_kmer)
 	title ('Kmer Tree')
-	add.scale.bar(cex = 2, x = 0.16489, y = 3.748028)
-
+	locator()
+	add.scale.bar(x = 1.2, y = 1)
+###### Plot SNP tree with scale bar
 	plot(Abau_snp)
 	title('SNP Tree')
-	add.scale.bar(cex=2, x = 0.000139457, y = 3.669759)
-
+	locator()
+	add.scale.bar(x = 0.001, y = 1)
+###### Plot Core Genome tree with scale bar
 	plot (Abau_core)
 	title('Core Tree')
-	add.scale.bar (cex=2, )
-
+	add.scale.bar ()
+###### Plot Bayesian Inferece tree with scale bar
 	plot(Abau_BI)
 	title('Bayesian Inference Tree')
-	add.scale.bar(cex=2,x=0.0003303876, y=3.636215)	
-
-	
-
+	add.scale.bar(x=0.0005, y=1.15)
+###### Useful function to find location for scale bar
+	locator()
 
