@@ -174,13 +174,34 @@
 	cor.test(Abau_kSNP_core_mat,Abau_parsnp_mat)
 
 ##Bayesian Inference
-###instruction
-#### do another thing
-##### to install bioscripts.convert 0.4
+##### MrBayes accepts nexus aligned sequence files as input. Therefore use Mugsy and Maf2Fasta like we did for the SNP trees to align the sequences. And then follow the next few steps to convert the fasta files into nexus files.
+###### Download bioscripts.convert 4
 	curl -O https://pypi.python.org/packages/source/b/bioscripts.convert/bioscripts.convert-0.4.tar.gz
 	tar zxvf bioscripts.convert.tgz
-	cd bioscripts.convert
-	python setup.py install
+	cd bioscripts.convert-0.4
+	python setup.py install 
+###### To convert the fasta files into nexus files
+	cd bioscripts
+	cd convert 
+	python convbioseq.py nexus <input file>
+###### Download and install MrBayes (version 3.2.4 x 64)
+	curl -O http://mrbayes.sourceforge.net/download.php
+###### Go into the directory where mrbayes is then ...
+	./configure
+	make
+	make install
+###### Now run Mrbayes using the following commands
+	mb 
+	execute <nexus file location>
+	lset nst=6 rates=invgamma
+	mcmc ngen=20000 samplefreq=100 printfreq=100 diagnfreq=1000
+	while standard deviation > 0.01:
+		yes
+		10000
+	no
+	sump 
+	sumt
+###### The resulting nexus consensus trees can be visualized using Figtree or in R using the ape package
 	
 ## R-Code with Ape package for visualization of Acinetobacter baumannii trees
 	library(ape)
@@ -203,10 +224,14 @@
 	plot (Abau_core)
 	title('Core Tree')
 	add.scale.bar ()
-###### Plot Bayesian Inferece tree with scale bar
+###### Plot Bayesian Inference tree with scale bar
 	plot(Abau_BI)
 	title('Bayesian Inference Tree')
 	add.scale.bar(x=0.0005, y=1.15)
 ###### Useful function to find location for scale bar
 	locator()
-
+## Figtree was used to visualize the Klebsiella pneumoniae trees
+##### Figtree was downlaoded from http://tree.bio.ed.ac.uk/software/figtree/
+###### The trees were then opened in Figtree and the branches were transformed to be proportional
+###### The line width was changed to 2 and a scale bar was added.
+##### Photoshop was used to combine the four trees, add titles, and make, the labels easier to read.
