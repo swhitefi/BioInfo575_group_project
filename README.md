@@ -1,4 +1,4 @@
-# BioInfo575_group_project: Phylogenetic methods used in Bioinfo 575 final project Spring 2015
+# BioInfo575 group project: Phylogenetic methods used in Bioinfo 575 final project Spring 2015
 
 ##Core Genome
 ###### download parsnp and gingr
