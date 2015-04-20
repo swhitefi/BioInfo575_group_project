@@ -231,7 +231,7 @@
 ###### Useful function to find location for scale bar
 	locator()
 ## Figtree was used to visualize the Klebsiella pneumoniae trees
-##### Figtree was downlaoded from http://tree.bio.ed.ac.uk/software/figtree/
+##### Figtree was downloaded from http://tree.bio.ed.ac.uk/software/figtree/
 ###### The trees were then opened in Figtree and the branches were transformed to be proportional
 ###### The line width was changed to 2 and a scale bar was added.
 ##### Photoshop was used to combine the four trees, add titles, and make, the labels easier to read.
